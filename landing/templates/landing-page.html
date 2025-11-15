@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block main-content %}
+<div class="l-content-parent">
+  <div class="l-content">
+    <h1 class="purple-m">EduBank.</h1>
+    <h2>A new way to store <modify class="purple-m">data</modify></h2>
+    <h2 style="font-size: 29px">
+      For <modify class="purple-m">schools</modify>, by
+      <modify class="purple-m">students</modify>.
+    </h2>
+    <a href="{% url 'sign-up' %}"
+      ><button class="bg-def">Get started</button></a
+    >
+  </div>
+</div>
+{% endblock main-content %}

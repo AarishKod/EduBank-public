@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    <h1 class="purple-m">Add data</h1>
+    {% if user.is_authenticated %}
+    <form autocomplete="off" method="POST" action="{% url 'add' %}">
+      {% csrf_token %} {{ partnerform.as_p }}
+      <input
+        style="background-color: #9486e1"
+        type="submit"
+        value="Add partner"
+      />
+    </form>
+    {% else %}
+    <p>You aren't logged in. Log in <a href="{% url 'login' %}">here</a></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock main-content %}

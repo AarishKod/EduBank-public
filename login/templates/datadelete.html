@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    {% if user.is_authenticated %}
+    <h1 class="purple-m">Delete data</h1>
+    {% if user.is_superuser %}
+    <h4>
+      Head to the admin panel <a href="{% url 'admin:index' %}">here</a> to
+      delete or modify data
+    </h4>
+    {% else %}
+    <h4>
+      Contact an admin to modify or delete data you've inputted. As a normal
+      user, you don't have these permissions.
+    </h4>
+    {% endif %} {% else %}
+    <p>You aren't logged in. Log in <a href="{% url 'login' %}">here</a></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock main-content %}

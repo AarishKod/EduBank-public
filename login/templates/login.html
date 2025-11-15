@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    {% if user.is_authenticated %}
+    <hgroup>
+      <h1>Hey there,</h1>
+      <h2>it looks like you're already logged in.</h2>
+      <h3>
+        Click <a href="{% url 'userlogout' %}">here</a> to sign out and click
+        <a href="{% url 'dashboard' %}">here</a> to be redirected to the
+        dashboard
+      </h3>
+    </hgroup>
+
+    {% else %}
+    <h1 class="purple-m">Login</h1>
+    <p>
+      Don't have an account yet? Create one
+      <a href="{% url 'sign-up' %}">here</a>
+    </p>
+    <form autocomplete="off" method="post">
+      {% csrf_token %} {{loginform.as_p}}
+      <input style="background-color: #9486e1" type="submit" value="Log in" />
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock main-content %}

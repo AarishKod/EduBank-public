@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- {% static 'res/css/tstyle.css' %}  - href could be this -->
+    <link rel="shortcut icon" href="{% static 'res/favicon.ico' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'res/css/tstyle.css' %}">
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>EduBank</title>
+    {% endblock title %}
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><strong>EduBank</strong></li>
+      </ul>
+      <ul>
+        {% block nav-mod %} {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">
+          <li>
+            <button class="bg-def">Dashboard</button>
+          </li>
+        </a>
+        <a href="{% url 'userlogout' %}">
+          <li>
+            <button class="secondary">Sign out</button>
+          </li>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+          <li>
+            <button class="secondary">Log in</button>
+          </li>
+        </a>
+        {% endif %} {% endblock nav-mod %}
+      </ul>
+    </nav>
+    {% block main-content %} {% endblock main-content %}
+  </body>
+</html>

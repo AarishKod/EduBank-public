@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    <div autocomplete="off" class="bot-content">
+      <h1 class="purple-m">AI assistant</h1>
+      <p style="font-size: small">EduBank Assistant powered by GPT-4</p>
+      <div class="chatbox">
+        <hgroup>
+          <p style="font-size: small">EduBank assistant:</p>
+
+          <p>Hello! How can I assist you today?</p>
+        </hgroup>
+
+        {% if display %}
+        <hgroup id="you">
+          <p style="font-size: small">You:</p>
+          <p>{{ input }}</p>
+        </hgroup>
+        <hgroup id="bot">
+          <p style="font-size: small">EduBank assistant:</p>
+
+          <p>{{ message }}</p>
+        </hgroup>
+        {% endif %}
+      </div>
+      <form method="POST">
+        {% csrf_token %} {{ form }}
+        <input style="background-color: #9486e1" type="submit" value="Enter" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}

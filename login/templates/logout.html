@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    <hgroup>
+      <h1>You have been logged out.</h1>
+      <p>Click <a href="{% url 'login' %}">here</a> to log in</p>
+    </hgroup>
+  </div>
+</div>
+{% endblock main-content %}

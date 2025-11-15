@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    {% if user.is_authenticated %}
+    <h1><op class="purple-m">Dashboard</op> - South Windsor High School</h1>
+    <div class="box-commands">
+      <div class="top-area">
+        <div class="data-display0 view-data bxh">
+          <a href="{% url 'view' %}" class="kli">
+            <h3 class="b-i">View the data</h3>
+          </a>
+        </div>
+        <div class="data-display0 input-data bxh">
+          <a href="{% url 'add' %}" class="kli">
+            <h3 class="b-i">Add data</h3>
+          </a>
+        </div>
+        <div class="data-display0 ai-d bxh">
+          <a href="{% url 'ai' %}" class="kli">
+            <h3 class="b-i">AI/Help</h3>
+          </a>
+        </div>
+      </div>
+      <div class="bottom-area">
+        <div class="data-display0 delete-data bxh">
+          <a href="{% url 'delete' %}" class="kli">
+            <h3 class="b-i">Delete data</h3>
+          </a>
+        </div>
+        <div class="data-display0 modify-data bxh">
+          <a href="{% url 'modify' %}" class="kli">
+            <h3 class="b-i">Modify data</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <h1 class="purple-m">Dashboard</h1>
+    <p>You aren't logged in. Log in <a href="{% url 'login' %}">here</a></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="data-content">
+  {% if user.is_authenticated %}
+  <h1 style="display: inline">
+    <up class="purple-m">SWHS</up> - CTE Department Data
+  </h1>
+  <h4>Sort by:</h4>
+<div style="gap: 1; width: 600px;" class="grid">
+    <div><form style="width: 250px;" autocomplete="off" method="POST" ">
+            {% csrf_token %} {{ orgform }}
+            <input
+              style="background-color: #9486e1"
+              type="submit"
+              value="Go"
+              name="form-1-submit"
+            />
+          </form>
+      </div>
+    <div><form style="width: 250px;" autocomplete="off" method="POST" ">
+                {% csrf_token %} {{ avaform }}
+                <input
+                  style="background-color: #9486e1"
+                  type="submit"
+                  value="Go"
+                  name="form-2-submit"
+                />
+              </form></div>
+
+  </div>
+
+
+  <p style="font-size: 10px">
+    This is dummy data. These companies have no affiliation with SWHS
+  </p>
+
+  <div style="gap: 0;" class="grid">
+    <div><b>Partner name:</b></div>
+    <div><b>Organization type:</b></div>
+    <div><b>Available resources:</b></div>
+    <div><b>Partner email:</b></div>
+    <div><b>Partner phone number:</b></div>
+  </div>
+  {% for item in all %}
+  <div style="gap: 0" class="grid">
+    <div class="bnm">{{ item.partner_Name }}</div>
+    <div class="bnm">{{ item.organization_Type }}</div>
+    <div class="bnm">{{ item.available_Resources }}</div>
+    <div class="bnm">{{ item.email }}</div>
+    <div class="bnm">{{ item.phone_Number }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="data-content">
+  <h1 class="purple-m">Dashboard</h1>
+  <p>You aren't logged in. Log in <a href="{% url 'login' %}">here</a></p>
+</div>
+{% endif %} {% endblock main-content %}

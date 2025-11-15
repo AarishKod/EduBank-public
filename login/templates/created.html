@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block main-content %}
+<div class="rp-content-parent">
+  <div class="register-page">
+    {% if user.is_authenticated %}
+    <h1 class="purple-m">Hey there,</h1>
+    <h4>
+      The data has been added to the database. Click 'dashboard' (in the top
+      right) and then click 'view data' to see the database
+    </h4>
+    {% else %}
+    <p>You aren't logged in. Log in <a href="{% url 'login' %}">here</a></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock main-content %}
