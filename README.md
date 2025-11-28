@@ -1,6 +1,6 @@
 # EduBank
 EduBank is a bank for schools to store data
-Link: https://fbla-project.onrender.com/
+\nLink: https://fbla-project.onrender.com/
 
 ## Sign up
 When you arrive at the web page, you have to create an account. Hit the 'Get Started' button to be redirected to the sign up page. Fill out the data
